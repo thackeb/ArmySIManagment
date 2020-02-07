@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="ArmySIManagment.GUI.Views.SelectedSoldierInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArmySIManagment.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+                Background="{DynamicResource ResourceKey=NormalBrush}">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/GUI/Resources/ExpressionDark.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="DisplayName" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="14" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"  FontWeight="Bold"/>
+        <Label Content="Assigned SI" Grid.Row="5" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontWeight="DemiBold"/>
+        <ListView x:Name="SensitiveItemBaseClasses" Grid.Row="6"  Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="5"   >
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Weapon"  DisplayMemberBinding="{Binding EquipmentName}" Width="100"/>
+                        <GridViewColumn  Header="Serial #"  DisplayMemberBinding="{Binding SerialNumber}" Width="100"/>
+                        <GridViewColumn  Header="Admin #"  DisplayMemberBinding="{Binding RosterNumber}" Width="100"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+     
+
+        <Label Content="Last Name" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="LastName" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5"/>
+        <Label Content="First Name" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FirstName"  Grid.Row="2" Grid.Column="7"  Grid.ColumnSpan="5"/>
+        <Label Content="Rank" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="Rank" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Platoon" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Platoon" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <Label Content="Squad" Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Squad" Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <Label Content="Fire Team" Grid.Row="3" Grid.Column="11" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FireTeam" Grid.Row="4" Grid.Column="11" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <Label Content="Position" Grid.Row="5" Grid.Column="9" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="SelectedRoleName" Grid.Row="6" Grid.Column="9" Grid.ColumnSpan="4" IsReadOnly="True"/>
+        <Button x:Name="SelectPositionBtn" Content="Assign Position" Grid.Column="9" Grid.ColumnSpan="2" Grid.Row="7"/>
+        <Button x:Name="RemovePositionBtn" Content="Remove Position" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="7"/>
+        <Label Content="Status" Grid.Row="8" Grid.Column="8" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="Statuses" Grid.Row="9" Grid.Column="8" Grid.ColumnSpan="3" SelectedValue="{Binding SelectedStatus }" />
+        <Button x:Name="SaveBtn" Content="Save Changes" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="10"/>
+    </Grid>
+</UserControl>

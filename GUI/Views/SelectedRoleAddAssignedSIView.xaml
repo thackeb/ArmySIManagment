@@ -1,0 +1,77 @@
+﻿<Window x:Class="ArmySIManagment.GUI.Views.SelectedRoleAddAssignedSIView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArmySIManagment.GUI.Views"
+         xmlns:cal="http://www.caliburnproject.org"
+        mc:Ignorable="d"
+        Background="{DynamicResource ResourceKey=NormalBrush}"
+        Title="SelectedRoleAddAssignedSIView" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary Source="/GUI/Resources/ExpressionDark.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Item Type" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <ListBox x:Name="AvailSITypes" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="2"  cal:Message.Attach="[Event SelectionChanged] = [ItemTypeSelectionChanged]" SelectedItem="{Binding SelectedSIType}" />
+        <Label  Content="Serial Number" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <ComboBox x:Name="SerialNumbers" Text=""  IsTextSearchEnabled="True"  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4"  IsEditable="True" SelectedItem="{Binding SelectedSerialNumber, Mode=TwoWay}"  cal:Message.Attach="[Event SelectionChanged] = [SerialNumberSelectionChanged]" >
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                    <Setter Property="SnapsToDevicePixels" Value="True"/>
+                    <Setter Property="Template" Value="{DynamicResource ComboBoxTemplate}"/>
+                </Style>
+            </ComboBox.Style>
+        </ComboBox>
+        
+        <Label  Content="Admin Number" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="4" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <ComboBox x:Name="AdminNumbers" Grid.Row="5" IsTextSearchEnabled="True" Grid.Column="6" Grid.ColumnSpan="3" IsEditable="True" SelectedItem="{Binding SelectedAdminNumber, Mode=TwoWay}" cal:Message.Attach="[Event SelectionChanged] = [AdminNumberSelectionChanged]" >
+            <ComboBox.Triggers>
+                <EventTrigger RoutedEvent="TextBoxBase.TextChanged">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsDropDownOpen">
+                                <DiscreteBooleanKeyFrame Value="True"
+                                                    KeyTime="0:0:0" />
+                            </BooleanAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ComboBox.Triggers>
+            <ComboBox.Style>
+                <Style TargetType="{x:Type ComboBox}">
+                    <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+                    <Setter Property="SnapsToDevicePixels" Value="True"/>
+                    <Setter Property="Template" Value="{DynamicResource ComboBoxTemplate}"/>
+                </Style>
+            </ComboBox.Style>
+        </ComboBox>
+        <Button Content="Add Item" Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" x:Name="AddItemBtn" />
+    </Grid>
+</Window>

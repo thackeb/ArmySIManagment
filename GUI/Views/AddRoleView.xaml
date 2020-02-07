@@ -1,0 +1,56 @@
+﻿<Window x:Class="ArmySIManagment.GUI.Views.AddRoleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArmySIManagment.GUI.Views"
+        mc:Ignorable="d"
+        Title="Add Role " Height="400" Width="600" ResizeMode="NoResize"
+         Background="{DynamicResource ResourceKey=NormalBrush}">
+    <Window.Resources>
+        <ResourceDictionary Source="/GUI/Resources/ExpressionDark.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Role Name" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="RoleName" Text="Enter Role Name Here" Grid.Row="2"  Grid.Column="2" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Platoons" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox x:Name="FirstPlatoonCheckBox" Content="1st Platoon" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="SecondPlatoonCheckBox" Content="2nd Platoon" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="ThirdPlatoonCheckBox" Content="3rdPlatoon" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="FourthPlatoonCheckBox" Content="HQ Platoon" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <Label Content="Squads" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox x:Name="FirstSquadCheckBox" Content="1st Squad" Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="SecondSquadCheckBox" Content="2nd Squad" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="ThirdSquadCheckBox" Content="3rd Squad" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="FourthSquadCheckBox" Content="Wpns Squad" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="3"/>
+        <Label Content="FireTeam" Grid.Row="3" Grid.Column="7" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox x:Name="AlphaTeamCheckBox" Content="Alpha Team" Grid.Row="4" Grid.Column="8" Grid.ColumnSpan="3"/>
+        <CheckBox x:Name="BravoTeamCheckBox" Content="Bravo Team" Grid.Row="5" Grid.Column="8" Grid.ColumnSpan="3"/>
+        <Button x:Name="AddRoleBtn" Content="Add Role" Grid.Column="3" Grid.Row="8" Grid.ColumnSpan="3" />
+    </Grid>
+</Window>

@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="ArmySIManagment.GUI.Views.SoldierRosterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArmySIManagment.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+               Background="{DynamicResource ResourceKey=NormalBrush}">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="/GUI/Resources/ExpressionDark.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="BindSoldiers"  Grid.Column="1" Grid.Row="1"  SelectedItem="{Binding SelectedSoldier}" >
+            <ListView.View >
+                <GridView  x:Name="SoldierGridView" AllowsColumnReorder="True" >
+
+                    <GridView.Columns>
+                        <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}"  Width="100"/>
+                        <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="100" />
+                        <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding RankString}"  Width="100"/>
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding StatusString}"  Width="100"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <GridSplitter Grid.Column="2" Grid.Row="1"   Width="5" HorizontalAlignment="Stretch" />
+        <GridSplitter Grid.Row="2" Grid.Column="1" Height="5" HorizontalAlignment="Stretch" />
+        <ContentControl x:Name="ActiveItem" Grid.Column="3" Grid.Row="1"/>
+        <Button x:Name="AddSoldierBtn" Content="Add Soldier" Grid.Column="1" Grid.Row="3"/>
+        <Button x:Name="RemoveSoldierBtn" Content="Remove Soldier" Grid.Column="1" Grid.Row="4"/>
+    </Grid>
+</UserControl>

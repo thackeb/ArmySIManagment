@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="ArmySIManagment.GUI.Views.FinalReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ArmySIManagment.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" 
+            Background="{DynamicResource ResourceKey=NormalBrush}">
+    <UserControl.Resources>
+        <ResourceDictionary Source="/GUI/Resources/ExpressionDark.xaml" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="700" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="400"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="DisplayName" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="14" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"  FontWeight="Bold"/>
+        <Label Content="Total Soldiers in Company" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="CompanyCount" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="Main Body" Grid.Row="1" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SoldierMainBodyCount" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="ADVON" Grid.Row="1" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SoldierADVONCount" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="Rear" Grid.Row="1" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SoldierRearCount" Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="Total Going Out" Grid.Row="1" Grid.Column="10" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SoldierGoingOutCount" Grid.Row="2" Grid.Column="10" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="Absent" Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="SoldierAbsentCount" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1" IsReadOnly="True"/>
+        <Label Content="AWOL" Grid.Row="4" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="SoldierAWOLCount" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="1"/>
+            <ListView x:Name="SensitiveItemCount"  Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="5"   Grid.RowSpan="5" SelectedItem="{Binding SelectedSoldier}" >
+            <ListView.View >
+                <GridView   AllowsColumnReorder="True" >
+
+                    <GridView.Columns>
+                        <GridViewColumn Header="Equipment" DisplayMemberBinding="{Binding Key}"  Width="100"/>
+                        <GridViewColumn Header="Going Out" DisplayMemberBinding="{Binding Value}" Width="100" />
+
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+            <Button x:Name="RefreshBtn" Content="Refresh" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="4"/>
+            <TextBox x:Name="ExcelSheetFilePath" Grid.Row="10" Grid.Column="10" Grid.ColumnSpan="4"/>
+            <Label Content="Excel File Name to Export " Grid.Row="9" Grid.Column="10" Grid.ColumnSpan="4"/>
+            <Button x:Name="SelectFileBtn" Content="Select File" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="11"/>
+            <Button x:Name="ExportExcelBtn" Content="Export" Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="11"/>
+
+
+        </Grid>
+    </Grid>
+</UserControl>
